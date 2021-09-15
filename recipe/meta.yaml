@@ -35,6 +35,7 @@ requirements:
     - reportlab >=3.3.0
     - sortedcontainers
     - importlib_resources
+    - importlib_metadata
     - tqdm >=4
     - ghostscript
     - img2pdf
