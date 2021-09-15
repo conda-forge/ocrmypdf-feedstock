@@ -34,6 +34,7 @@ requirements:
     - python >=3.6
     - reportlab >=3.3.0
     - sortedcontainers
+    - importlib_resources
     - tqdm >=4
     - ghostscript
     - img2pdf
