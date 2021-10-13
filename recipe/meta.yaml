@@ -1,5 +1,5 @@
 {% set name = "ocrmypdf" %}
-{% set version = "12.6.0" %}
+{% set version = "12.7.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ocrmypdf-{{ version }}.tar.gz
-  sha256: d538d7c46eb781893151af21294b11c95b6aaf79967a88638cd832b285551f32
+  sha256: 5b37d41ea59bda6a46f09394a9735f5cbae3d57b0d1961c45aa651cb55c0d68c
 
 build:
   number: 0
