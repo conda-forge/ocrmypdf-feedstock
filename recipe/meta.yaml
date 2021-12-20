@@ -44,6 +44,7 @@ requirements:
     - qpdf
     - tesseract
     - unpaper
+    - packaging
 
 test:
   imports:
