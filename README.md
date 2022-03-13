@@ -5,7 +5,7 @@ Home: https://github.com/jbarlow83/OCRmyPDF
 
 Package license: MPL-2.0
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ocrmypdf-feedstock/blob/master/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ocrmypdf-feedstock/blob/main/LICENSE.txt)
 
 Summary: OCRmyPDF adds an OCR text layer to scanned PDF files, allowing them to be searched
 
@@ -17,8 +17,8 @@ Current build status
 
 <table><tr><td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12040&branchName=master">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ocrmypdf-feedstock?branchName=master">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=12040&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ocrmypdf-feedstock?branchName=main">
       </a>
     </td>
   </tr>
