@@ -1,5 +1,5 @@
 {% set name = "ocrmypdf" %}
-{% set version = "13.4.4" %}
+{% set version = "13.4.5" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ocrmypdf-{{ version }}.tar.gz
-  sha256: d132a9e5dcd73a477f8bd89f15de2c4ae64b394ca296644971fcd004168ace9d
+  sha256: 47752a9f56c45de21e2b57133a92acea92ab8327ae28c9978447c99006f58f7b
 
 build:
   number: 0
@@ -24,13 +24,13 @@ requirements:
     - setuptools_scm
     - setuptools_scm_git_archive
   run:
-    - cffi >=1.14
     - coloredlogs >=15
     - img2pdf >=0.4
+    - packaging >=20
     - pdfminer.six >=20201018
     - pikepdf >=2.10
     - pillow >=8.3.2
-    - pluggy >=0.13.0,<1.0
+    - pluggy >=0.13.0,<2.0
     - python >=3.7
     - reportlab >=3.5
     - sortedcontainers
@@ -39,7 +39,6 @@ requirements:
     - tqdm >=4
     - ghostscript
     - img2pdf
-    - leptonica
     - pngquant
     - qpdf
     - tesseract
