@@ -24,6 +24,7 @@ requirements:
     - setuptools_scm
     - setuptools_scm_git_archive
   run:
+    - deprecation >=2.1.0
     - coloredlogs >=15
     - img2pdf >=0.4
     - packaging >=20
@@ -36,11 +37,11 @@ requirements:
     - importlib_resources
     - importlib_metadata
     - tqdm >=4
-    - ghostscript
+    - ghostscript >=9.5
     - img2pdf
     - pngquant
     - qpdf
-    - tesseract
+    - tesseract >=4.1.1
     - unpaper
     - packaging
 
