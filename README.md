@@ -1,11 +1,11 @@
-About ocrmypdf
-==============
+About ocrmypdf-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ocrmypdf-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/jbarlow83/OCRmyPDF
 
 Package license: MPL-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ocrmypdf-feedstock/blob/main/LICENSE.txt)
 
 Summary: OCRmyPDF adds an OCR text layer to scanned PDF files, allowing them to be searched
 
