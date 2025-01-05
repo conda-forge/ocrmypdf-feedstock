@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ocrmypdf-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ocrmypdf-{{ version }}.tar.gz
   sha256: eb78822c725c2c6143d4fd642f73e6d3c7a032651ac5fa1a9a741f019f21a714
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - ocrmypdf = ocrmypdf.__main__:run
@@ -20,7 +20,7 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
     - setuptools_scm
     - setuptools_scm_git_archive
   run:
@@ -32,7 +32,7 @@ requirements:
     - pikepdf >=5.1
     - pillow >=8.3.2
     - pluggy >=0.13.0
-    - python >=3.7
+    - python >={{ python_min }}
     - reportlab >=3.5
     - importlib_resources
     - importlib_metadata
@@ -54,6 +54,7 @@ test:
     - ocrmypdf --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/jbarlow83/OCRmyPDF
