@@ -9,7 +9,7 @@ Package license: MPL-2.0
 
 Summary: OCRmyPDF adds an OCR text layer to scanned PDF files, allowing them to be searched
 
-Development: https://github.com/jbarlow83/ocrmypdf
+Development: https://github.com/ocrmypdf/OCRmyPDF
 
 Current build status
 ====================
