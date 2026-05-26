@@ -1,21 +1,24 @@
-{% set name = "ocrmypdf" %}
-{% set version = "14.2.0" %}
+schema_version: 1
 
+context:
+  name: ocrmypdf
+  version: "14.2.0"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ocrmypdf-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/${{ name[0] }}/${{ name }}/ocrmypdf-${{ version }}.tar.gz
   sha256: eb78822c725c2c6143d4fd642f73e6d3c7a032651ac5fa1a9a741f019f21a714
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  entry_points:
-    - ocrmypdf = ocrmypdf.__main__:run
-  script: {{ PYTHON }} -m pip install . -vv
+  script: ${{ PYTHON }} -m pip install . -vv
+  python:
+    entry_points:
+      - ocrmypdf = ocrmypdf.__main__:run
 
 requirements:
   host:
@@ -45,22 +48,25 @@ requirements:
     - unpaper
     - packaging
 
-test:
-  imports:
-    - ocrmypdf
-    - ocrmypdf._exec
-  commands:
-    - pip check
-    - ocrmypdf --help
-  requires:
-    - pip
+tests:
+  - python:
+      imports:
+        - ocrmypdf
+        - ocrmypdf._exec
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+    script:
+      - ocrmypdf --help
 
 about:
-  home: https://github.com/jbarlow83/OCRmyPDF
   summary: OCRmyPDF adds an OCR text layer to scanned PDF files, allowing them to be searched
-  dev_url: https://github.com/jbarlow83/ocrmypdf
   license: MPL-2.0
   license_file: LICENSE
+  homepage: https://github.com/jbarlow83/OCRmyPDF
+  repository: https://github.com/jbarlow83/ocrmypdf
 
 extra:
   recipe-maintainers:
