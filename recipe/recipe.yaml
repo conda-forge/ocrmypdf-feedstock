@@ -1,8 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 schema_version: 1
 
 context:
   name: ocrmypdf
-  version: "14.2.0"
+  version: "16.11.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,57 +11,49 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/ocrmypdf-${{ version }}.tar.gz
-  sha256: eb78822c725c2c6143d4fd642f73e6d3c7a032651ac5fa1a9a741f019f21a714
+  sha256: 838ab69e0ee0f04feea0d5861a17badecab6d3beaed0e29a97058eadda58cbb1
 
 build:
-  number: 1
+  number: 0
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
     entry_points:
       - ocrmypdf = ocrmypdf.__main__:run
 
 requirements:
   host:
-    - pip
     - python ${{ python_min }}.*
-    - setuptools
-    - setuptools_scm
-    - setuptools_scm_git_archive
+    - hatchling
+    - hatch-vcs
+    - pip
   run:
-    - python >=${{ python_min }}
+    - python >=${{ python_min }},<4
     - deprecation >=2.1.0
-    - coloredlogs >=15
-    - img2pdf >=0.4
+    - img2pdf >=0.5
     - packaging >=20
-    - pdfminer.six >=20201018
-    - pikepdf >=5.1
-    - pillow >=8.3.2
-    - pluggy >=0.13.0
-    - reportlab >=3.5
-    - importlib_resources
-    - importlib-metadata
-    - tqdm >=4
-    - ghostscript >=9.5
-    - img2pdf
-    - pngquant
-    - qpdf
-    - tesseract >=4.1.1
-    - unpaper
-    - packaging
+    - pdfminer.six >=20220319
+    #- pi-heif # Note conda package is pillow-heif
+    - pillow-heif # Note conda package pdfminer-six is returning version 0.0.0
+    - pikepdf >=8.10.1,!=9.8.0
+    - pillow >=10.0.1
+    - pluggy >=1
+    - rich >=13
+    - pdfminer-six >=20220319 # Note conda package pdfminer-six is returning version 0.0.0
 
 tests:
   - python:
       imports:
         - ocrmypdf
         - ocrmypdf._exec
-      pip_check: true
-      python_version:
-        - ${{ python_min }}.*
-        - "*"
+      pip_check: false
+      #│ │ ocrmypdf 16.11.1 requires pi-heif, which is not installed. # Note conda package is pillow-heif
+      #│ │ ocrmypdf 16.11.1 has requirement pdfminer-six>=20220319, but you have pdfminer-six 0.0.0. # Note conda package pdfminer-six is returning version 0.0.0
+      python_version: ${{ python_min }}.*
   - requirements:
       run:
         - pip
+        - python ${{ python_min }}.*
     script:
       - ocrmypdf --help
 
@@ -68,8 +61,8 @@ about:
   summary: OCRmyPDF adds an OCR text layer to scanned PDF files, allowing them to be searched
   license: MPL-2.0
   license_file: LICENSE
+  repository: https://github.com/ocrmypdf/OCRmyPDF
   homepage: https://github.com/jbarlow83/OCRmyPDF
-  repository: https://github.com/jbarlow83/ocrmypdf
 
 extra:
   recipe-maintainers:
