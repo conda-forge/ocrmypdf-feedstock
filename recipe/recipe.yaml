@@ -3,7 +3,8 @@ schema_version: 1
 
 context:
   name: ocrmypdf
-  version: "16.11.1"
+  version: "17.4.2"
+  python_min: "3.11"
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +12,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/ocrmypdf-${{ version }}.tar.gz
-  sha256: 838ab69e0ee0f04feea0d5861a17badecab6d3beaed0e29a97058eadda58cbb1
+  sha256: b564557411c9a2695137cdc34e0a1a5084c5f33d7b3ef593f2659aa6a6a1c3cd
 
 build:
   number: 0
@@ -25,7 +26,6 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - hatchling
-    - hatch-vcs
     - pip
   run:
     - python >=${{ python_min }},<4
@@ -35,10 +35,13 @@ requirements:
     - pdfminer.six >=20220319
     #- pi-heif # Note conda package is pillow-heif
     - pillow-heif # Note conda package pdfminer-six is returning version 0.0.0
-    - pikepdf >=8.10.1,!=9.8.0
+    - pikepdf >=10
+    - pypdfium2 >=5.0.0
     - pillow >=10.0.1
+    - pydantic >=2.12.5
     - pluggy >=1
     - rich >=13
+    - uharfbuzz >=0.53.2
     - pdfminer-six >=20220319 # Note conda package pdfminer-six is returning version 0.0.0
 
 tests:
