@@ -148,4 +148,5 @@ Feedstock Maintainers
 
 * [@carlodri](https://github.com/carlodri/)
 * [@izahn](https://github.com/izahn/)
+* [@rxm7706](https://github.com/rxm7706/)
 
