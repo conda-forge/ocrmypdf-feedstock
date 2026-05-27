@@ -41,7 +41,7 @@ requirements:
     - pydantic >=2.12.5
     - pluggy >=1
     - rich >=13
-    - uharfbuzz>=0.53.2
+    - uharfbuzz >=0.53.2
     - pdfminer-six >=20220319 # Note conda package pdfminer-six is returning version 0.0.0
 
 tests:
