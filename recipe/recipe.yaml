@@ -30,19 +30,19 @@ requirements:
   run:
     - python >=${{ python_min }},<4
     - deprecation >=2.1.0
+    - fpdf2 >=2.8.0
     - img2pdf >=0.5
     - packaging >=20
-    - pdfminer.six >=20220319
-    #- pi-heif # Note conda package is pillow-heif
-    - pillow-heif # Note conda package pdfminer-six is returning version 0.0.0
+    - pdfminer-six >=20260107
+    - pillow-heif
     - pikepdf >=10
     - pypdfium2 >=5.0.0
     - pillow >=10.0.1
     - pydantic >=2.12.5
     - pluggy >=1
     - rich >=13
+    - tesseract
     - uharfbuzz >=0.53.2
-    - pdfminer-six >=20220319 # Note conda package pdfminer-six is returning version 0.0.0
 
 tests:
   - python:
@@ -50,12 +50,10 @@ tests:
         - ocrmypdf
         - ocrmypdf._exec
       pip_check: false
-      python_version: ${{ python_min }}.*
-  - requirements:
-      run:
-        - python ${{ python_min }}.*
-        - tesseract
-    files:
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - files:
       source:
         - tests/resources/
     script:
