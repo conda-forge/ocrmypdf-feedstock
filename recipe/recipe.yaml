@@ -50,15 +50,21 @@ tests:
         - ocrmypdf
         - ocrmypdf._exec
       pip_check: false
-      #│ │ ocrmypdf 16.11.1 requires pi-heif, which is not installed. # Note conda package is pillow-heif
-      #│ │ ocrmypdf 16.11.1 has requirement pdfminer-six>=20220319, but you have pdfminer-six 0.0.0. # Note conda package pdfminer-six is returning version 0.0.0
       python_version: ${{ python_min }}.*
   - requirements:
       run:
-        - pip
         - python ${{ python_min }}.*
+        - tesseract
+    files:
+      source:
+        - tests/resources/
     script:
       - ocrmypdf --help
+      - ocrmypdf --version
+      - ocrmypdf --mode force --output-type pdf tests/resources/linn.pdf /tmp/ocr_output.pdf
+      - test -s /tmp/ocr_output.pdf
+      - ocrmypdf --mode skip --optimize 3 --output-type pdf tests/resources/graph_ocred.pdf /tmp/opt_output.pdf
+      - test -s /tmp/opt_output.pdf
 
 about:
   summary: OCRmyPDF adds an OCR text layer to scanned PDF files, allowing them to be searched
