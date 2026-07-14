@@ -35,6 +35,7 @@ requirements:
     - packaging >=20
     - pdfminer-six >=20260107
     - pillow-heif
+    - pngquant
     - pikepdf >=10
     - pypdfium2 >=5.0.0
     - pillow >=10.0.1
