@@ -56,7 +56,8 @@ tests:
         - "*"
   - files:
       source:
-        - tests/resources/
+        - tests/resources/linn.pdf
+        - tests/resources/graph_ocred.pdf
     script:
       - ocrmypdf --help
       - ocrmypdf --version
