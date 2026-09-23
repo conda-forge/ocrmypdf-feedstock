@@ -3,8 +3,7 @@ schema_version: 1
 
 context:
   name: ocrmypdf
-  version: "17.11.0"
-  python_min: "3.11"
+  version: "17.12.1"
 
 package:
   name: ${{ name|lower }}
@@ -12,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/ocrmypdf-${{ version }}.tar.gz
-  sha256: 8e41cbba23bba9ce20bc557576211e1829d1beaef00183bacd227b4b9482af87
+  sha256: aca73a23a80cf2f46a4c15040b0035203dbf74054b7a0c3a7ee93b05abc555a6
 
 build:
   number: 0
